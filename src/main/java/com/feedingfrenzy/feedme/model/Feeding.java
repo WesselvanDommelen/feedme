@@ -25,6 +25,16 @@ public class Feeding {
 
     private Integer timeSpent;
 
+    public Feeding(Integer urlId, boolean breastMilk, LocalDateTime timeGiven, Integer timeSpent) {
+        this.urlId = urlId;
+        this.breastMilk = breastMilk;
+        this.timeGiven = timeGiven;
+        this.timeSpent = timeSpent;
+    }
+
+    public Feeding() {
+    }
+
     public Integer getFeedingId() {
         return feedingId;
     }
