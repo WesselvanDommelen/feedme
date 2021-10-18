@@ -7,20 +7,42 @@
 
     <div th:replace="fragments/general :: navbar"></div>
 
-    <table class="table">
-        <tr>
-            <td>wanneer</td>
-            <td>moedermelk</td>
-            <td>borst</td>
-            <td>aantal minuten</td>
-        </tr>
-        <tr th:each="feeding : ${feedingList}">
-            <td><a th:text="${feeding.timeGiven}"></a></td>
-            <td><a th:text="${feeding.breastMilk}"></a></td>
-            <td><a th:text="${feeding.breast}"></a></td>
-            <td><a th:text="${feeding.timeSpent}"></a></td>
-        </tr>
-    </table>
+    <div>
+        <div th:if="${vitaminPresent}">
+            <span>Vitamines gegeven!</span>
+        </div>
+        <div th:unless="${vitaminPresent}">
+            <form class="has-validation" th:action="@{/vitamin/new}" method="post" th:object="${vitamin}">
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="vitamins" th:field="*{given}">
+                    <label class="form-check-label" for="vitamins">Vitamine Check?</label>
+                </div>
+                <button class="btn btn-primary">Opslaan</button>
+            </form>
+        </div>
+
+    </div>
+
+    <div>
+        <table class="table">
+            <tr>
+                <td>wanneer</td>
+                <td>moedermelk</td>
+                <td>borst</td>
+                <td>aantal minuten</td>
+            </tr>
+            <tr th:each="feeding : ${feedingList}">
+                <td><a th:text="${feeding.timeGiven}"></a></td>
+                <td><a th:text="${feeding.breastMilk}"></a></td>
+                <td><a th:text="${feeding.breast}"></a></td>
+                <td><a th:text="${feeding.timeSpent}"></a></td>
+            </tr>
+        </table>
+    </div>
+
+
+
+
 
 </div>
 
