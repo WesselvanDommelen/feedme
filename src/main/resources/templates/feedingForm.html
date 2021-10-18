@@ -8,13 +8,21 @@
     <div th:replace="fragments/general :: navbar"></div>
 
     <form class="has-validation" th:action="@{/feeding/new}" method="post" th:object="${feeding}">
-        <div class="form-group form-check">
-            <label class="form-check-label" for="breastMilk">Moedermelk</label>
-            <input type="checkbox" class="form-check-input" id="breastMilk" th:field="*{breastMilk}">
+        <div class="form-group">
+            <label for="date">Datum</label>
+            <input type="date" class="form-control" id="date" name="date">
         </div>
         <div class="form-group">
             <label for="timeGiven">Wanneer?</label>
-            <input type="datetime-local" class="form-control" id="timeGiven" th:field="*{timeGiven}">
+            <input type="time" class="form-control" id="timeGiven" th:field="*{timeGiven}">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="breastMilk" th:field="*{breastMilk}">
+            <label class="form-check-label" for="breastMilk">Moedermelk</label>
+        </div>
+        <div class="form-group">
+            <label for="breast">Welke borst?</label>
+            <input type="text" class="form-control" id="breast" th:field="*{breast}">
         </div>
         <div class="form-group">
             <label for="timeSpent">Minuten</label>

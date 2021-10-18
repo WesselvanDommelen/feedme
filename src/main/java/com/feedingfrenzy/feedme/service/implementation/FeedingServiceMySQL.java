@@ -8,6 +8,8 @@ import com.feedingfrenzy.feedme.service.dtoconverter.FeedingConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,6 +37,18 @@ public class FeedingServiceMySQL implements FeedingService {
         List<Feeding> feedingList = feedingRepository.findAll();
         List<FeedingDTO> feedingDTOList = feedingConverter.toListDTO(feedingList);
 
+        return feedingDTOList;
+    }
+
+    @Override
+    public List<FeedingDTO> getFeedingsToday() {
+        List<FeedingDTO> feedingDTOList = new ArrayList<>();
+        List<FeedingDTO> allFeedingDTO = getAll();
+        for (FeedingDTO feedingDTO : allFeedingDTO) {
+            if (feedingDTO.getDateGiven().equals(LocalDate.now())) {
+                feedingDTOList.add(feedingDTO);
+            }
+        }
         return feedingDTOList;
     }
 

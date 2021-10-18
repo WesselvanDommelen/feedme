@@ -16,7 +16,9 @@ public class FeedingConverter {
                 feeding.getUrlId(),
                 feeding.isBreastMilk(),
                 feeding.getTimeGiven(),
-                feeding.getTimeSpent()
+                feeding.getDateGiven(),
+                feeding.getTimeSpent(),
+                feeding.getBreast()
         );
     }
 
@@ -33,7 +35,9 @@ public class FeedingConverter {
                 feedingDTO.getUrlId(),
                 feedingDTO.isBreastMilk(),
                 feedingDTO.getTimeGiven(),
-                feedingDTO.getTimeSpent()
+                feedingDTO.getDateGiven(),
+                feedingDTO.getTimeSpent(),
+                feedingDTO.getBreast()
         );
     }
 }

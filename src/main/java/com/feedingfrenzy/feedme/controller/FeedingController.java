@@ -8,7 +8,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -43,8 +45,11 @@ public class FeedingController {
     @PostMapping("/feeding/new")
     protected String saveFeeding(Model model,
                                  @ModelAttribute("feeding") FeedingDTO feedingDTO,
+                                 @RequestParam String date,
                                  BindingResult result) {
         if (!result.hasErrors()) {
+            LocalDate localDate = LocalDate.parse(date);
+            feedingDTO.setDateGiven(localDate);
             feedingService.addNew(feedingDTO);
         }
 

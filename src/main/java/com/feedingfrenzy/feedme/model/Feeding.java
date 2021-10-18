@@ -4,7 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  * @author Wessel van Dommelen <w.r.van.dommelen@st.hanze.nl>
@@ -21,15 +23,21 @@ public class Feeding {
 
     private boolean breastMilk;
 
-    private LocalDateTime timeGiven;
+    private LocalTime timeGiven;
+
+    private LocalDate dateGiven;
 
     private Integer timeSpent;
 
-    public Feeding(Integer urlId, boolean breastMilk, LocalDateTime timeGiven, Integer timeSpent) {
+    private String breast;
+
+    public Feeding(Integer urlId, boolean breastMilk, LocalTime timeGiven, LocalDate dateGiven, Integer timeSpent, String breast) {
         this.urlId = urlId;
         this.breastMilk = breastMilk;
         this.timeGiven = timeGiven;
+        this.dateGiven = dateGiven;
         this.timeSpent = timeSpent;
+        this.breast = breast;
     }
 
     public Feeding() {
@@ -59,12 +67,20 @@ public class Feeding {
         this.breastMilk = breastMilk;
     }
 
-    public LocalDateTime getTimeGiven() {
+    public LocalTime getTimeGiven() {
         return timeGiven;
     }
 
-    public void setTimeGiven(LocalDateTime timeGiven) {
+    public void setTimeGiven(LocalTime timeGiven) {
         this.timeGiven = timeGiven;
+    }
+
+    public LocalDate getDateGiven() {
+        return dateGiven;
+    }
+
+    public void setDateGiven(LocalDate dateGiven) {
+        this.dateGiven = dateGiven;
     }
 
     public Integer getTimeSpent() {
@@ -73,5 +89,13 @@ public class Feeding {
 
     public void setTimeSpent(Integer timeSpent) {
         this.timeSpent = timeSpent;
+    }
+
+    public String getBreast() {
+        return breast;
+    }
+
+    public void setBreast(String breast) {
+        this.breast = breast;
     }
 }

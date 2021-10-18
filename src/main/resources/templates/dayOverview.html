@@ -9,14 +9,12 @@
 
     <table class="table">
         <tr>
-            <td>datum</td>
             <td>wanneer</td>
             <td>moedermelk</td>
             <td>borst</td>
             <td>aantal minuten</td>
         </tr>
         <tr th:each="feeding : ${feedingList}">
-            <td><a th:text="${feeding.dateGiven}"></a></td>
             <td><a th:text="${feeding.timeGiven}"></a></td>
             <td><a th:text="${feeding.breastMilk}"></a></td>
             <td><a th:text="${feeding.breast}"></a></td>

@@ -8,5 +8,7 @@ public interface FeedingService {
 
     List<FeedingDTO> getAll();
 
+    List<FeedingDTO> getFeedingsToday();
+
     FeedingDTO addNew(FeedingDTO feedingDTO);
 }
