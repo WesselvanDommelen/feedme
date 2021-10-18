@@ -20,9 +20,17 @@
             <input type="checkbox" class="form-check-input" id="breastMilk" th:field="*{breastMilk}">
             <label class="form-check-label" for="breastMilk">Moedermelk</label>
         </div>
-        <div class="form-group">
-            <label for="breast">Welke borst?</label>
-            <input type="text" class="form-control" id="breast" th:field="*{breast}">
+        <div class="form-group form-check-inline">
+            <input type="radio" class="form-check-input" id="breastLeft" value="links" th:field="*{breast}">
+            <label class="form-check-label" for="breastLeft">Links</label>
+        </div>
+        <div class="form-group form-check-inline">
+            <input type="radio" class="form-check-input" id="breastRight" value="rechts" th:field="*{breast}">
+            <label class="form-check-label" for="breastRight">Rechts</label>
+        </div>
+        <div class="form-group form-check-inline">
+            <input type="radio" class="form-check-input" id="breastBoth" value="beiden" th:field="*{breast}">
+            <label class="form-check-label" for="breastBoth">Beiden</label>
         </div>
         <div class="form-group">
             <label for="timeSpent">Minuten</label>

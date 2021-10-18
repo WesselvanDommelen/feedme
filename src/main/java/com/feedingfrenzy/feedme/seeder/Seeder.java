@@ -35,7 +35,7 @@ public class Seeder {
     private void seedFeeding() {
         List<FeedingDTO> feedingDTOList = new ArrayList<>();
         feedingDTOList.add(new FeedingDTO(true, LocalTime.of(3, 15), LocalDate.now(), 15, "links"));
-        feedingDTOList.add(new FeedingDTO(true, LocalTime.of(5, 15), LocalDate.now(), 13, "links/rechts"));
+        feedingDTOList.add(new FeedingDTO(true, LocalTime.of(5, 15), LocalDate.now(), 13, "beiden"));
         feedingDTOList.add(new FeedingDTO(true, LocalTime.of(12, 55), LocalDate.of(2021, 10, 7), 17, "rechts"));
 
         for (FeedingDTO feedingDTO : feedingDTOList) {
