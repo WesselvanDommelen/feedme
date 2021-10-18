@@ -26,6 +26,9 @@ public class FeedingDTO {
         this.timeSpent = timeSpent;
     }
 
+    public FeedingDTO() {
+    }
+
     public Integer getUrlId() {
         return urlId;
     }

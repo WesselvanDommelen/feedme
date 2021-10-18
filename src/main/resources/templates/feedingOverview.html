@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="NL-nl" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org">
+<div th:replace="fragments/general :: baseHeader"></div>
+<body>
+
+<div class="container">
+
+    <div th:replace="fragments/general :: navbar"></div>
+
+    <table class="table">
+        <tr>
+            <td>wanneer</td>
+            <td>moedermelk</td>
+            <td>aantal minuten</td>
+        </tr>
+        <tr th:each="feeding : ${feedingList}">
+            <td><a th:text="${feeding.timeGiven}"></a></td>
+            <td><a th:text="${feeding.breastMilk}"></a></td>
+            <td><a th:text="${feeding.timeSpent}"></a></td>
+        </tr>
+    </table>
+
+</div>
+
+<div th:replace="fragments/general :: footer"></div>
+
+<div th:replace="fragments/general :: bottomScripts"></div>
+</body>
+</html>

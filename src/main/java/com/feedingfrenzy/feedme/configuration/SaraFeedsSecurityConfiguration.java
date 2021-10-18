@@ -18,7 +18,7 @@ public class SaraFeedsSecurityConfiguration extends WebSecurityConfigurerAdapter
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/").permitAll()
+                .antMatchers("/", "/feeding/new", "feedings").permitAll()
                 .antMatchers("/css/**").permitAll()
                 .anyRequest().authenticated().and()
                 .formLogin().and()
