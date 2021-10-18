@@ -20,3 +20,7 @@ body {
 .navbar a:hover {
     background-color: #e6f3f8;
 }
+
+.table {
+    margin-top: 2rem;
+}

@@ -33,11 +33,47 @@
             </tr>
             <tr th:each="feeding : ${feedingList}">
                 <td><a th:text="${feeding.timeGiven}"></a></td>
-                <td><a th:text="${feeding.breastMilk}"></a></td>
+                <td th:if="${feeding.breastMilk}">ja</td>
+                <td th:unless="${feeding.breastMilk}">nee</td>
                 <td><a th:text="${feeding.breast}"></a></td>
                 <td><a th:text="${feeding.timeSpent}"></a></td>
             </tr>
         </table>
+    </div>
+
+    <div>
+        <table class="table">
+            <tr>
+                <td>Ontlasting</td>
+                <td><a th:text="${amountOfPoo}"></a></td>
+            </tr>
+            <tr>
+                <td>Urine</td>
+                <td><a th:text="${amountOfPee}"></a></td>
+            </tr>
+            <tr th:each="note : ${notes}">
+                <td><a th:text="${note}"></a></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <form class="has-validation" th:action="@{/excrement/new}" method="post" th:object="${excrement}">
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="poo" th:field="*{poo}">
+                <label class="form-check-label" for="poo">Ontlasting</label>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="pee" th:field="*{pee}">
+                <label class="form-check-label" for="pee">Urine</label>
+            </div>
+            <div class="form-group">
+                <label for="note">Opmerkingen (indien abnormaal)</label>
+                <input type="text" class="form-control" id="note" th:field="*{notes}">
+            </div>
+            <button class="btn btn-primary">Opslaan</button>
+        </form>
     </div>
 
 
